@@ -1,3 +1,9 @@
+# TO DO
+
+## Praktikum
+
+- [x] **Pertemuan 1 :** Install Laravel Awal dan Membuat view hello
+
 # FW-Praktikum
 
 ## Nama Lengkap
