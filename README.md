@@ -3,6 +3,7 @@
 ## Praktikum
 
 - [x] **Pertemuan 1 :** Install Laravel Awal dan Membuat view hello
+- [x] **Pertemuan 2 :** Basic Routing
 
 # FW-Praktikum
 
