@@ -48,4 +48,9 @@ Route::get('/dashboard', function() {
     return 'Welcome to your Dashboard';
 })->middleware('auth');
 
+
+Route::get('tambah/{n1}/{n2}', function($n1 = 10, $n2 = 11) {
+    return $n1 + $n2;
+});
+
 Route::resource('posts', 'PostController');
