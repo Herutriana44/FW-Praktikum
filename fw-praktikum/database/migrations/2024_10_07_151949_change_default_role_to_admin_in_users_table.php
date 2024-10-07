@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('products', function(Blueprint $table) {
-            $table->string('producer')->after('qty');
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', ['root', 'admin', 'user'])->default('admin')->change();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('products', function(Blueprint $table) {
-            $table->dropColumn('producer');
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('role', ['root', 'admin', 'user'])->default('user')->change();
         });
     }
 };
