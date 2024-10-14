@@ -18,4 +18,4 @@
 - **Program Studi: Informatika**
 - **Fakultas: Ilmu Komputer**
 - **Dosen Pengampu: Kamal Prihandani, S.Kom., M.Kom**
-- **Mata Kuliah: Mata Kuliah**
+- **Mata Kuliah: Framework Pemrograman Web**
