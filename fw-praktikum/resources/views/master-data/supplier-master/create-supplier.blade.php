@@ -11,7 +11,7 @@
             <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="container mx-auto mt-5">
-                        <h2 class="mb-5 text-2xl font-bold">Create New Product</h2>
+                        <h2 class="mb-5 text-2xl font-bold">Create New Supplier</h2>
                         <x-auth-session-status class="mb-4" :status="session('success')" />
                             <form action="{{ route('supplier-store')}}" method="POST" class="space-y-4">
                             @csrf <!-- Laravel CSRF protection -->
