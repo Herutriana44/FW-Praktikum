@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class SupplierController extends Controller
@@ -27,7 +27,16 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi_data = $request->validate([
+            'supplier_name' => 'required|string|max:255',
+            'supplier_address' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'comment' => 'required|string|max:255',
+        ]);
+
+        Supplier::create($validasi_data);
+
+        return redirect()->back()->with('success', 'Supplier Created Successfully');
     }
 
     /**
