@@ -19,23 +19,20 @@
                 </div>
             @endif
 
-            <a href="{{ route('product-create')}}">
+            <a href="{{ route('supplier-create')}}">
                 <button
                     class="px-6 py-4 text-white bg-green-500 border border-green-500 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">
-                    Add product data
+                    Add supplier data
                 </button>
             </a>
             <table class="min-w-full border border-collapse border-gray-200">
                 <thead>
                     <tr class="bg-gray-100">
                         <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">ID</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Product Name</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Unit</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Type</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">information</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">qty</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">producer</th>
-                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Aksi</th>
+                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Supplier Name</th>
+                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Supplier Address</th>
+                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Phone</th>
+                        <th class="px-4 py-2 text-left text-gray-600 border border-gray-200">Comment</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,17 +40,15 @@
                     @foreach ($data as $item)
                         <tr class="bg-white">
                             <td class="px-4 py-2 border border-gray-200">{{ $item->id }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->product_name }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->unit }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->type }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->information }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->qty }}</td>
-                            <td class="px-4 py-2 border border-gray-200">{{ $item->producer }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->supplier_name }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->supplier_address }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->phone }}</td>
+                            <td class="px-4 py-2 border border-gray-200">{{ $item->comment }}</td>
                             <td class="px-4 py-2 border border-gray-200">
-                                <a href="{{ route('product-edit', $item->id) }}"
+                                <a href="{{ route('supplier-edit', $item->id) }}"
                                     class="px-2 text-blue-600 hover:text-blue-800">Edit</a>
                                 <button class="px-2 text-red-600 hover:text-red-800"
-                                    onclick="confirmDelete('{{ route('product-delete', $item->id) }}')">Hapus</button>
+                                    onclick="confirmDelete('{{ route('supplier-delete', $item->id) }}')">Hapus</button>
                             </td>
                         </tr>
                     @endforeach

@@ -27,12 +27,12 @@ Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('prod
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-delete');
 
-Route::get('/supplier', [SupplierController::class, 'index']);
+Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name("supplier-create");
 Route::post('/supplier', [SupplierController::class, 'store'])->name("supplier-store");
 Route::get('/supplier/{id}', [SupplierController::class, 'show']);
-Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit']);
-Route::put('/supplier/{id}', [SupplierController::class, 'update']);
-Route::delete('/supplier/{id}', [SupplierController::class, 'destroy']);
+Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier-edit');;
+Route::put('/supplier/{id}', [SupplierController::class, 'update'])->name('supplier-update');
+Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier-delete');
 
 require __DIR__ . '/auth.php';
