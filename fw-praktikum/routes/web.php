@@ -30,7 +30,7 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('pro
 Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name("supplier-create");
 Route::post('/supplier', [SupplierController::class, 'store'])->name("supplier-store");
-Route::get('/supplier/{id}', [SupplierController::class, 'show']);
+Route::get('/supplier/{id}', [SupplierController::class, 'show'])->name("supplier-detail");
 Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier-edit');;
 Route::put('/supplier/{id}', [SupplierController::class, 'update'])->name('supplier-update');
 Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier-delete');

@@ -11,7 +11,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $data = Supplier::all();
+        $data = Supplier::paginate(2);
         return view("master-data.supplier-master.index-supplier", compact('data'));
     }
 
@@ -45,7 +45,8 @@ class SupplierController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $supplier = Supplier::findOrFail($id);
+        return view("master-data.supplier-master.detail-supplier", compact('supplier'));
     }
 
     /**

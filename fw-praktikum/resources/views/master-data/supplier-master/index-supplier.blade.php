@@ -40,6 +40,11 @@
                     @foreach ($data as $item)
                         <tr class="bg-white">
                             <td class="px-4 py-2 border border-gray-200">{{ $item->id }}</td>
+                            <td class="px-4 py-2 border border-gray-200 hover:text-blue-500 hover:underline">
+                                <a href="{{ route('supplier-detail', $item->id ) }}">
+                                    {{  $item->supplier_name }}
+                                </a>
+                            </td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->supplier_name }}</td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->supplier_address }}</td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->phone }}</td>
@@ -57,6 +62,10 @@
                     <!-- Tambahkan baris lainnya sesuai kebutuhan -->
                 </tbody>
             </table>
+
+            <div class="mt-4">
+                {{ $data->links() }}
+            </div>
         </div>
     </div>
 
