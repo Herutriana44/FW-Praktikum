@@ -9,9 +9,25 @@ class SupplierController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Supplier::paginate(2);
+        // Ambil semua produk
+        $query = Supplier::query();
+
+        // Cek apakah ada parameter 'search' di request
+        if ($request->has('search') && $request->search != '') {
+
+
+            // Melakukan pencarian berdasarkan nama produk atau informasi
+            $search = $request->search;
+            $query->where(function ($q) use ($search) {
+                $q->where('supplier_name', 'like', '%' . $search . '%');
+            });
+        }
+
+
+        // Ambil produk dengan paginasi
+        $data = $query->paginate(2);
         return view("master-data.supplier-master.index-supplier", compact('data'));
     }
 
@@ -87,8 +103,7 @@ class SupplierController extends Controller
     public function destroy(string $id)
     {
         $supplier = Supplier::find($id);
-        if($supplier)
-        {
+        if ($supplier) {
             $supplier->delete();
             return redirect()->route('supplier')->with('success', 'Supplier Berhasil Dihapus.');
         }

@@ -25,6 +25,12 @@
                     Add product data
                 </button>
             </a>
+            <form method="GET" action="{{ route('product') }}" class="mb-4 flex items-center">
+                <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari produk..."
+                    class="w-1/4 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button type="submit"
+                    class="ml-2 rounded-lg bg-green-500 px-4 py-2 text-white shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500">Cari</button>
+            </form>
             <table class="min-w-full border border-collapse border-gray-200">
                 <thead>
                     <tr class="bg-gray-100">
@@ -44,7 +50,7 @@
                         <tr class="bg-white">
                             <td class="px-4 py-2 border border-gray-200">{{ $item->id }}</td>
                             <td class="px-4 py-2 border border-gray-200 hover:text-blue-500 hover:underline">
-                                <a href="{{ route('product-detail', $item->id ) }}">
+                                <a href="{{ route('product-detail', $item->id) }}">
                                     {{  $item->product_name }}
                                 </a>
                             </td>
@@ -69,7 +75,8 @@
             </table>
 
             <div class="mt-4">
-                {{ $data->links() }}
+                <!-- {{ $data->links() }} -->
+                {{ $data->appends(['search' => request('search')])->links() }}
             </div>
         </div>
     </div>
