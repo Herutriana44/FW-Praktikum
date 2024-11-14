@@ -43,6 +43,11 @@
                     @foreach ($data as $item)
                         <tr class="bg-white">
                             <td class="px-4 py-2 border border-gray-200">{{ $item->id }}</td>
+                            <td class="px-4 py-2 border border-gray-200 hover:text-blue-500 hover:underline">
+                                <a href="{{ route('product-detail', $item->id ) }}">
+                                    {{  $item->product_name }}
+                                </a>
+                            </td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->product_name }}</td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->unit }}</td>
                             <td class="px-4 py-2 border border-gray-200">{{ $item->type }}</td>
