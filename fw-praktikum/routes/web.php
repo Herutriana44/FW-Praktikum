@@ -26,12 +26,14 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->name("product-d
 Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit');
 Route::put('/product/{id}', [ProductController::class, 'update'])->name('product-update');
 Route::delete('/product/{id}', [ProductController::class, 'destroy'])->name('product-delete');
+Route::get('/product/export/excel', [ProductController::class, 'exportExcel'])->name('product-export-excel');
 
 Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier');
 Route::get('/supplier/create', [SupplierController::class, 'create'])->name("supplier-create");
 Route::post('/supplier', [SupplierController::class, 'store'])->name("supplier-store");
 Route::get('/supplier/{id}', [SupplierController::class, 'show'])->name("supplier-detail");
-Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier-edit');;
+Route::get('/supplier/{id}/edit', [SupplierController::class, 'edit'])->name('supplier-edit');
+;
 Route::put('/supplier/{id}', [SupplierController::class, 'update'])->name('supplier-update');
 Route::delete('/supplier/{id}', [SupplierController::class, 'destroy'])->name('supplier-delete');
 

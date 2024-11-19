@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\ProductsExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -119,4 +121,10 @@ class ProductController extends Controller
 
         return redirect()->route('product')->with('error', 'Product Tidak Berhasil Dihapus.');
     }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProductsExport, 'product.xlsx');
+    }
+
 }

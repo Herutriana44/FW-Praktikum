@@ -25,6 +25,15 @@
                     Add product data
                 </button>
             </a>
+
+            <a href="{{ route('product-export-excel')}}">
+                <button
+                    class="px-6 py-4 text-white bg-blue-500 border border-blue-500 rounded-lg shadow-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    Export Data
+                </button>
+            </a>
+
+
             <form method="GET" action="{{ route('product') }}" class="mb-4 flex items-center">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari produk..."
                     class="w-1/4 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
