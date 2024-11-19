@@ -34,6 +34,8 @@
             </a>
 
 
+
+
             <form method="GET" action="{{ route('product') }}" class="mb-4 flex items-center">
                 <input type="text" name="search" value="{{ request('search') }}" placeholder="Cari produk..."
                     class="w-1/4 rounded-lg border border-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500">
