@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\ProductsExport;
+use App\Models\Supplier;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,7 +17,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         // Ambil semua produk
-        $query = Product::query();
+        $query = Product::with('supplier');
 
         // Cek apakah ada parameter 'search' di request
         if ($request->has('search') && $request->search != '') {
@@ -33,7 +34,7 @@ class ProductController extends Controller
         // Ambil produk dengan paginasi
         $data = $query->paginate(2);
 
-
+        // return $data;
         return view("master-data.product-master.index-product", compact('data'));
     }
 
@@ -42,7 +43,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('master-data.product-master.create-product');
+        $suppliers = Supplier::all();
+        return view('master-data.product-master.create-product', compact('suppliers'));
     }
 
     /**
@@ -56,7 +58,8 @@ class ProductController extends Controller
             'type' => 'required|string|max:50',
             'information' => 'nullable|string',
             'qty' => 'required|integer',
-            'producer' => 'required|string|max:255'
+            'producer' => 'required|string|max:255',
+            'supplier_id' => 'required|exists:supplier,id',
         ]);
 
         Product::create($validasi_data);
